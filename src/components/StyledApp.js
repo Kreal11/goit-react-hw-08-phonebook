@@ -39,3 +39,10 @@ export const AppWrapper = styled.div`
   font-size: 40px;
   color: #010101;
 `;
+
+export const Blur = styled.div`
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  z-index: -1;
+`;

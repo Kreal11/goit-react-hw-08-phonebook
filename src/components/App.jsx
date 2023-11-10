@@ -6,7 +6,7 @@ import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
 import { useEffect } from 'react';
 import { fetchContactsThunk } from 'redux/operations';
 import Loader from './Loader/Loader';
-import { AppWrapper, StyledHeaderH1, StyledPlug } from './StyledApp';
+import { AppWrapper, Blur, StyledHeaderH1, StyledPlug } from './StyledApp';
 import styled from 'styled-components';
 
 export const App = () => {
@@ -36,10 +36,3 @@ export const App = () => {
     </AppWrapper>
   );
 };
-
-const Blur = styled.div`
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(4px);
-  z-index: -1;
-`;
