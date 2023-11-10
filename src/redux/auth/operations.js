@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-const { default: axios } = require('axios');
+import axios from 'axios';
 
 const userAuthApi = axios.create({
   baseURL: 'https://connections-api.herokuapp.com/',

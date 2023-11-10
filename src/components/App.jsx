@@ -1,38 +1,30 @@
-import { AddContact } from './AddContact/AddContact';
-import { AllContacts } from './AllContacts/AllContacts';
-import { SearchContacts } from './SearchContact/SearchContact';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContactsThunk } from 'redux/operations';
-import Loader from './Loader/Loader';
-import { AppWrapper, Blur, StyledHeaderH1, StyledPlug } from './StyledApp';
-import styled from 'styled-components';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from 'pages/Home';
+import { AddContactForm } from 'pages/AddContact';
+import { Register } from 'pages/Register';
+import { Login } from 'pages/Login';
+import { NotFound } from 'pages/NotFound';
+import { Layout } from './Layout/Layout';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const error = useSelector(selectError);
-  const loading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(fetchContactsThunk());
   }, [dispatch]);
 
   return (
-    <AppWrapper>
-      <Blur></Blur>
-      <StyledHeaderH1>PHONEBOOK</StyledHeaderH1>
-      <div>
-        <AddContact />
-        <SearchContacts />
-        {!contacts.length && !error && !loading && (
-          <StyledPlug>There are no contacts yet😭</StyledPlug>
-        )}
-        {error && <h2>{error}</h2>}
-        {loading && <Loader />}
-        <AllContacts />
-      </div>
-    </AppWrapper>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="addContact" element={<AddContactForm />} />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
