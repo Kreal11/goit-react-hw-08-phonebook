@@ -5,11 +5,11 @@ export const userAuthApi = axios.create({
   baseURL: 'https://connections-api.herokuapp.com/',
 });
 
-const addToken = token => {
+export const addToken = token => {
   userAuthApi.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const clearToken = () => {
+export const clearToken = () => {
   userAuthApi.defaults.headers.common.Authorization = '';
 };
 
@@ -18,9 +18,10 @@ export const registerThunk = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const { data } = await userAuthApi.post('users/signup', credentials);
+      addToken(data.token);
       return data;
     } catch (error) {
-      thunkApi.rejectWithValue(error);
+      thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -33,7 +34,7 @@ export const loginThunk = createAsyncThunk(
       addToken(data.token);
       return data;
     } catch (error) {
-      thunkApi.rejectWithValue(error);
+      thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -43,6 +44,21 @@ export const logoutThunk = createAsyncThunk('logout', async (_, thunkApi) => {
     await userAuthApi.post('users/logout');
     clearToken();
   } catch (error) {
-    thunkApi.rejectWithValue(error);
+    thunkApi.rejectWithValue(error.message);
+  }
+});
+
+export const refreshThunk = createAsyncThunk('refresh', async (_, thunkApi) => {
+  const savedToken = thunkApi.getState().auth.token;
+  if (!savedToken) {
+    return thunkApi.rejectWithValue('Token doesn`t exist');
+  }
+  try {
+    addToken(savedToken);
+    const { data } = await userAuthApi.get('users/current');
+    console.log(data);
+    return data;
+  } catch (error) {
+    return thunkApi.rejectWithValue(error.message);
   }
 });

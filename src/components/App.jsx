@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContactsThunk } from 'redux/operations';
 import { Route, Routes } from 'react-router-dom';
 import { Home } from 'pages/Home';
 import { AddContactForm } from 'pages/AddContact';
@@ -8,12 +7,13 @@ import { Register } from 'pages/Register';
 import { Login } from 'pages/Login';
 import { NotFound } from 'pages/NotFound';
 import { Layout } from './Layout/Layout';
+import { refreshThunk } from 'redux/auth/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContactsThunk());
+    dispatch(refreshThunk());
   }, [dispatch]);
 
   return (

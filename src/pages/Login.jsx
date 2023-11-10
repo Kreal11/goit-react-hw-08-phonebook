@@ -17,7 +17,7 @@ export const Login = () => {
     reset();
   };
   if (isLoggedIn) {
-    toast.success(`Welcome, ${name}`);
+    toast.success(`Welcome, ${name}!`);
     return <Navigate to="/" />;
   }
   return (
