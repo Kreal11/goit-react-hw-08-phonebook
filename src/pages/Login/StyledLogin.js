@@ -10,6 +10,7 @@ export const LoginForm = styled.form`
   span {
     font-size: 14px;
     a {
+      padding: 2px;
       color: #4b0082;
       transition: color 0.5s, background-color 0.5s;
       border-radius: 3px;
