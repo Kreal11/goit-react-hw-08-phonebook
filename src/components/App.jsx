@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Home } from 'pages/Home';
-import { Register } from 'pages/Register';
-import { Login } from 'pages/Login';
-import { NotFound } from 'pages/NotFound';
+import { Home } from 'pages/Home/Home';
+import { Register } from 'pages/Register/Register';
+import { Login } from 'pages/Login/Login';
+import { NotFound } from 'pages/NotFound/NotFound';
 import { Layout } from './Layout/Layout';
 import { refreshThunk } from 'redux/auth/operations';
 import { PrivateRoute } from 'hoc/PrivateRoute';
