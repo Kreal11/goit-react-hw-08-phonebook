@@ -17,8 +17,8 @@ export const Login = () => {
     reset();
   };
   if (isLoggedIn) {
-    toast.success(`Welcome, ${name}!`);
-    return <Navigate to="/" />;
+    toast.success(`Greetings, ${name}!`);
+    return <Navigate to="/home" />;
   }
   return (
     <form action="" onSubmit={handleSubmit(submit)}>

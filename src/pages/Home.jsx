@@ -1,3 +1,4 @@
+import { AddContact } from 'components/AddContact/AddContact';
 import { AllContacts } from 'components/AllContacts/AllContacts';
 import Loader from 'components/Loader/Loader';
 import { SearchContacts } from 'components/SearchContact/SearchContact';
@@ -22,6 +23,7 @@ export const Home = () => {
   }, [dispatch, isLoggedIn]);
   return (
     <AppWrapper>
+      <AddContact />
       <SearchContacts />
       {!contacts.length && !error && !loading && (
         <StyledPlug>There are no contacts yet😭</StyledPlug>
