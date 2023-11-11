@@ -11,11 +11,11 @@ export const RegisterForm = styled.form`
     font-size: 14px;
     a {
       padding: 2px;
-      color: #4b0082;
+      color: #8b5a8b;
       transition: color 0.5s, background-color 0.5s;
       border-radius: 3px;
       &:hover {
-        background-color: #4b0082;
+        background-color: #8b5a8b;
         color: white;
       }
     }
