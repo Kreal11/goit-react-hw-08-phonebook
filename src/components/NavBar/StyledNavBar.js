@@ -22,5 +22,8 @@ export const NavLinksWrapper = styled.div`
       background-color: #8b5a8b;
       color: white;
     }
+    &.active {
+      border-bottom: #8b5a8b 3px solid;
+    }
   }
 `;
