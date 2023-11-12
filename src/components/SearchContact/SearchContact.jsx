@@ -18,7 +18,7 @@ export const SearchContacts = () => {
 
   return (
     <StyledSearchWrapper>
-      <StyledSearchLabel htmlFor="filter">Find contacts👇</StyledSearchLabel>
+      <StyledSearchLabel htmlFor="filter">Contacts hunter👇</StyledSearchLabel>
       <StyledInputSearchWrapper>
         <StyledSearchInput
           id="filter"

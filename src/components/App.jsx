@@ -8,6 +8,7 @@ import { NotFound } from 'pages/NotFound/NotFound';
 import { Layout } from './Layout/Layout';
 import { refreshThunk } from 'redux/auth/operations';
 import { PrivateRoute } from 'hoc/PrivateRoute';
+import { GamePlug } from './GamePlug/GamePlug';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Login />} />
+        <Route index element={<GamePlug />} />
         <Route
           path="/home"
           element={
