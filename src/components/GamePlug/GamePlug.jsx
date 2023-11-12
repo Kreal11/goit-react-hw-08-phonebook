@@ -27,17 +27,16 @@ export const GamePlug = () => {
   };
 
   const determineWinner = (player, computer) => {
-    if (player === computer) {
-      return "It's a tie!";
+    switch (true) {
+      case player === computer:
+        return "It's a tie!";
+      case (player === 'rock🏔️' && computer === 'scissors✂️') ||
+        (player === 'paper🧻' && computer === 'rock🏔️') ||
+        (player === 'scissors✂️' && computer === 'paper🧻'):
+        return 'You win!';
+      default:
+        return 'You lose!';
     }
-    if (
-      (player === 'rock' && computer === 'scissors') ||
-      (player === 'paper' && computer === 'rock') ||
-      (player === 'scissors' && computer === 'paper')
-    ) {
-      return 'You win!';
-    }
-    return 'You lose!';
   };
 
   return (

@@ -9,6 +9,7 @@ export const GameContainer = styled.div`
   margin: 0;
   margin-top: 60px;
   font-size: 18px;
+  gap: 10px;
 `;
 
 export const OptionsContainer = styled.div`
