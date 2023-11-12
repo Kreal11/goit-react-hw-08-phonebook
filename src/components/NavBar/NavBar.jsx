@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logoutThunk } from 'redux/auth/operations';
 import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
-import { NavLinksWrapper, NavWrapper } from './StyledNavBar';
+import {
+  LoggedLinksWrapper,
+  NavLinksWrapper,
+  NavWrapper,
+} from './StyledNavBar';
 
 export const NavBar = () => {
   const { name } = useSelector(selectUser);
@@ -23,12 +27,19 @@ export const NavBar = () => {
           <NavLinksWrapper>
             <NavLink to="/login">Login</NavLink>
             <NavLink to="/register">Register</NavLink>
+            <NavLink to="/">Game</NavLink>
           </NavLinksWrapper>
         ) : (
-          <div>
-            <span>{name}</span>
-            <button onClick={() => dispatch(logoutThunk())}>Log out</button>
-          </div>
+          <LoggedLinksWrapper>
+            <div>
+              <span>{name}</span>
+              <NavLink to="/home">Home</NavLink>
+              <NavLink to="/">Game</NavLink>
+            </div>
+            <div>
+              <button onClick={() => dispatch(logoutThunk())}>Log out</button>
+            </div>
+          </LoggedLinksWrapper>
         )}
       </NavWrapper>
     </div>

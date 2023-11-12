@@ -13,7 +13,7 @@ export const StyledHeaderH1 = styled.h1`
   text-shadow: 2px 2px 4px rgba(139, 90, 139, 0.5);
   letter-spacing: 2px;
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin: 15px 0;
   /* animation: glow 2s infinite;
 
   @keyframes glow {

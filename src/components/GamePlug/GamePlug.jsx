@@ -5,11 +5,16 @@ import {
   OptionsContainer,
   ResultText,
 } from './StyledGamePlug';
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 export const GamePlug = () => {
   const [userChoice, setUserChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState('');
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const choices = useMemo(() => ['rock🏔️', 'paper🧻', 'scissors✂️'], []);
 
@@ -41,7 +46,8 @@ export const GamePlug = () => {
 
   return (
     <GameContainer>
-      <h1>Welcome to the Game!</h1>
+      <h2>Welcome to Phonebook!</h2>
+      <h2>Don`t know what to do? You can play minigame while thinking🤪</h2>
       <p>Choose: Rock, Paper, or Scissors</p>
       <OptionsContainer>
         {choices.map(choice => (
@@ -54,6 +60,13 @@ export const GamePlug = () => {
         {userChoice &&
           `You chose ${userChoice}, the computer chose ${computerChoice}. ${result}`}
       </ResultText>
+      {!isLoggedIn && (
+        <h3>
+          Tired of playing game and wasting your time? Let`s{' '}
+          <NavLink to="/login"> Log in</NavLink> or{' '}
+          <NavLink to="/register">Register</NavLink>!
+        </h3>
+      )}
     </GameContainer>
   );
 };

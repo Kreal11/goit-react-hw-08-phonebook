@@ -27,3 +27,28 @@ export const NavLinksWrapper = styled.div`
     }
   }
 `;
+
+export const LoggedLinksWrapper = styled.div`
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  min-width: 780px;
+
+  a {
+    padding: 5px;
+    text-decoration: none;
+    color: #8b5a8b;
+    transition: color 0.5s, background-color 0.5s;
+    border-radius: 3px;
+    &:hover {
+      background-color: #8b5a8b;
+      color: white;
+    }
+    &.active {
+      border-bottom: #8b5a8b 3px solid;
+    }
+  }
+`;

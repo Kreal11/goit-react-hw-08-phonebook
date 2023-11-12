@@ -10,6 +10,20 @@ export const GameContainer = styled.div`
   margin-top: 60px;
   font-size: 18px;
   gap: 10px;
+
+  h3 {
+    margin-top: 15px;
+    a {
+      padding: 2px;
+      color: #8b5a8b;
+      transition: color 0.5s, background-color 0.5s;
+      border-radius: 3px;
+      &:hover {
+        background-color: #8b5a8b;
+        color: white;
+      }
+    }
+  }
 `;
 
 export const OptionsContainer = styled.div`

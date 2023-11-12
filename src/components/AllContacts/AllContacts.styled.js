@@ -5,7 +5,7 @@ export const StyledAllContactsUl = styled.ul`
   margin-bottom: 30px;
   font-size: 20px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   flex-direction: column;
   align-items: center;
   gap: 20px;
