@@ -32,7 +32,7 @@ export const NavBar = () => {
         ) : (
           <LoggedLinksWrapper>
             <div>
-              <span>{name}</span>
+              <span>Hi, {name}!</span>
               <NavLink to="/home">Home</NavLink>
               <NavLink to="/">Game</NavLink>
             </div>
