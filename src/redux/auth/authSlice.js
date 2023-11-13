@@ -14,7 +14,7 @@ const initialState = {
   token: '',
   isLoggedIn: false,
   isRefresh: false,
-  error: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -27,9 +27,11 @@ const authSlice = createSlice({
       })
       .addCase(refreshThunk.pending, state => {
         state.isRefresh = true;
+        state.error = null;
       })
-      .addCase(refreshThunk.rejected, state => {
+      .addCase(refreshThunk.rejected, (state, { payload }) => {
         state.isRefresh = false;
+        state.error = payload;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
@@ -44,13 +46,13 @@ const authSlice = createSlice({
           state.user.email = payload.user.email;
           state.token = payload.token;
           state.isLoggedIn = true;
-          state.error = false;
+          state.error = null;
         }
       )
       .addMatcher(
         isAnyOf(registerThunk.rejected, loginThunk.rejected),
         (state, { payload }) => {
-          state.error = true;
+          state.error = payload;
         }
       );
   },
