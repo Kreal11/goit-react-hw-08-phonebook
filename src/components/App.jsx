@@ -10,7 +10,6 @@ import { refreshThunk } from 'redux/auth/operations';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import { GamePlug } from './GamePlug/GamePlug';
 import { selectIsRefresh } from 'redux/auth/selectors';
-import { ClimbingBoxLoader } from 'react-spinners';
 import styled from 'styled-components';
 import Loader from './Loader/Loader';
 

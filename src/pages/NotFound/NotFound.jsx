@@ -1,6 +1,6 @@
 import React from 'react';
 // import img from './404-image.jpg';
-import { ImgWrapper, StyledImg } from './StyledNotFound';
+import { ImgWrapper } from './StyledNotFound';
 import { NavLink } from 'react-router-dom';
 
 export const NotFound = () => {

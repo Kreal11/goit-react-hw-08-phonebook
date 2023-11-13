@@ -12,7 +12,6 @@ import {
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { editContactThunk } from 'redux/operations';
-import styled from 'styled-components';
 
 const rootModal = document.querySelector('#modal');
 
