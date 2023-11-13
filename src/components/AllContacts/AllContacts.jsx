@@ -1,8 +1,10 @@
-import { OneContact } from 'components/OneContact/OneContact';
-import { StyledAllContactsUl } from './AllContacts.styled';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { OneContact } from 'components/OneContact/OneContact';
 import { selectContacts, selectFilter } from 'redux/selectors';
 import { deleteContactThunk } from 'redux/operations';
+
+import { StyledAllContactsUl } from './AllContacts.styled';
 
 export const AllContacts = () => {
   const dispatch = useDispatch();

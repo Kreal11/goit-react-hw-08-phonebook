@@ -1,13 +1,15 @@
+import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+
 import { AddContact } from 'components/AddContact/AddContact';
 import { AllContacts } from 'components/AllContacts/AllContacts';
 import Loader from 'components/Loader/Loader';
 import { SearchContacts } from 'components/SearchContact/SearchContact';
-import { AppWrapper, StyledPlug } from 'components/StyledApp';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
 import { fetchContactsThunk } from 'redux/operations';
 import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
+
+import { AppWrapper, StyledPlug } from 'components/StyledApp';
 
 export const Home = () => {
   const contacts = useSelector(selectContacts);

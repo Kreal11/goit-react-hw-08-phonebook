@@ -1,6 +1,12 @@
 import ReactDOM from 'react-dom';
 import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { editContactThunk } from 'redux/operations';
+
 import {
   CancelButton,
   HeaderModalWrapper,
@@ -9,10 +15,6 @@ import {
   StyledWrapperModal,
   StyledWrapperOverlay,
 } from './StyledModal';
-import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { editContactThunk } from 'redux/operations';
-import PropTypes from 'prop-types';
 
 const rootModal = document.querySelector('#modal');
 

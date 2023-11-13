@@ -1,7 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { Home } from 'pages/Home/Home';
+import styled from 'styled-components';
+
+import Loader from './Loader/Loader';
 import { Register } from 'pages/Register/Register';
 import { Login } from 'pages/Login/Login';
 import { NotFound } from 'pages/NotFound/NotFound';
@@ -10,8 +12,7 @@ import { refreshThunk } from 'redux/auth/operations';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import { GamePlug } from './GamePlug/GamePlug';
 import { selectIsRefresh } from 'redux/auth/selectors';
-import styled from 'styled-components';
-import Loader from './Loader/Loader';
+import { Home } from 'pages/Home/Home';
 
 export const App = () => {
   const dispatch = useDispatch();

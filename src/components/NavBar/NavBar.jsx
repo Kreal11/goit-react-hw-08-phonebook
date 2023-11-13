@@ -1,9 +1,11 @@
-import { StyledHeaderH1 } from 'components/StyledApp';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
 import { logoutThunk } from 'redux/auth/operations';
 import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
+
+import { StyledHeaderH1 } from 'components/StyledApp';
 import {
   LoggedLinksWrapper,
   NavLinksWrapper,

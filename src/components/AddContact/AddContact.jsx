@@ -1,3 +1,10 @@
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+
+import { addContactThunk } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
+
 import {
   StyledAddContactInput,
   StyledAddContactForm,
@@ -5,11 +12,6 @@ import {
   StyledAddContactButton,
   StyledAddContactInputWrapper,
 } from './AddContact.styled';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { addContactThunk } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
 
 export const AddContact = () => {
   const dispatch = useDispatch();

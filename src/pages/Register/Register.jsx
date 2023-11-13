@@ -3,39 +3,23 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { registerThunk } from 'redux/auth/operations';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
+import { registerThunk } from 'redux/auth/operations';
+import { schemaRegister } from 'helpers/schemas';
+
 import {
   InputWrapper,
   RegisterButton,
   RegisterForm,
   RegisterInput,
 } from './StyledRegister';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
 
 export const Register = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const { name } = useSelector(selectUser);
-
-  const schemaRegister = yup.object().shape({
-    name: yup
-      .string()
-      .min(2, 'Min length must be at least 5 symbols')
-      .required(),
-    email: yup
-      .string()
-      .email('Email is not valid')
-      .min(5, 'Min length must be at least 5 symbols')
-      .required(),
-    password: yup
-      .string()
-      .min(6, 'Min length must be at least 6 symbols')
-      .max(18, 'Max length must be 18 symbols')
-      .required(),
-    confirmPassword: yup.string().oneOf([yup.ref('password')]),
-  });
 
   const {
     register,

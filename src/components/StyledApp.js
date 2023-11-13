@@ -14,19 +14,6 @@ export const StyledHeaderH1 = styled.h1`
   letter-spacing: 2px;
   line-height: 1.2;
   margin: 15px 0;
-  /* animation: glow 2s infinite;
-
-  @keyframes glow {
-    0% {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    50% {
-      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
-    }
-    100% {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-  } */
 `;
 
 export const AppWrapper = styled.div`

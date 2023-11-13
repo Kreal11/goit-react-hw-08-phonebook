@@ -1,13 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { selectIsLoggedIn } from 'redux/auth/selectors';
+
 import {
   GameContainer,
   OptionButton,
   OptionsContainer,
   ResultText,
 } from './StyledGamePlug';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 export const GamePlug = () => {
   const [userChoice, setUserChoice] = useState(null);
