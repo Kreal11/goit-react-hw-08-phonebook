@@ -89,7 +89,7 @@ export const Register = () => {
           placeholder="Confirm password"
         />
       </InputWrapper>
-      {errors?.confirmPassword && <div>{errors.confirmPassword.message}</div>}
+      {errors?.confirmPassword && <div>Passwords are not equal!</div>}
       <RegisterButton>Register</RegisterButton>
       <span>
         Already have an account? <NavLink to="/login">Let's log in!</NavLink>

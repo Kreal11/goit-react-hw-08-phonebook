@@ -22,7 +22,6 @@ export const registerThunk = createAsyncThunk(
       addToken(data.token);
       return data;
     } catch (error) {
-      console.log(error);
       if (error.response.data.code === 11000) {
         toast.error('Sorry, this email already exists');
       }
