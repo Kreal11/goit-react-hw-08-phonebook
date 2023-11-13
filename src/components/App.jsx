@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
@@ -9,15 +9,19 @@ import { Layout } from './Layout/Layout';
 import { refreshThunk } from 'redux/auth/operations';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import { GamePlug } from './GamePlug/GamePlug';
+import { selectIsRefresh } from 'redux/auth/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
+  const isRefresh = useSelector(selectIsRefresh);
 
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
 
-  return (
+  return isRefresh ? (
+    <h2>Loading</h2>
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<GamePlug />} />

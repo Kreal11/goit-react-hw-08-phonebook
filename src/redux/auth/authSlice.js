@@ -13,6 +13,7 @@ const initialState = {
   },
   token: '',
   isLoggedIn: false,
+  isRefresh: true,
 };
 
 const authSlice = createSlice({
@@ -20,13 +21,20 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(logoutThunk.fulfilled, (state, { payload }) => {
-        return (state = initialState);
+      .addCase(logoutThunk.fulfilled, state => {
+        return (state = { ...initialState, isRefresh: false });
+      })
+      .addCase(refreshThunk.pending, state => {
+        state.isRefresh = true;
+      })
+      .addCase(refreshThunk.rejected, state => {
+        state.isRefresh = false;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.isLoggedIn = true;
+        state.isRefresh = false;
       })
       .addMatcher(
         isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),
