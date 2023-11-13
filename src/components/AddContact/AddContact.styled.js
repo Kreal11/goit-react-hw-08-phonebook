@@ -17,7 +17,7 @@ export const StyledAddContactLabel = styled.label`
 
 export const StyledAddContactInputWrapper = styled.div`
   margin: 0 auto;
-  width: 210px;
+  width: 270px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -34,6 +34,7 @@ export const StyledAddContactInputWrapper = styled.div`
 `;
 
 export const StyledAddContactInput = styled.input`
+  min-width: 250px;
   height: 40px;
   border: none;
   outline: none;
