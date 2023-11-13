@@ -46,15 +46,18 @@ export const LoggedLinksWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  min-width: 300px;
   margin-bottom: 20px;
 
   div {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
     align-items: center;
+    gap: 10px;
 
     @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
       gap: 20px;
     }
   }

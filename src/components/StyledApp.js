@@ -12,7 +12,7 @@ export const StyledHeaderH1 = styled.h1`
   text-transform: uppercase;
   text-shadow: 2px 2px 4px rgba(139, 90, 139, 0.5);
   line-height: 1.2;
-  margin: 15px 0;
+  margin-bottom: 15px;
 `;
 
 export const AppWrapper = styled.div`
