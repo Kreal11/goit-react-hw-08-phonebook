@@ -10,6 +10,9 @@ import { refreshThunk } from 'redux/auth/operations';
 import { PrivateRoute } from 'hoc/PrivateRoute';
 import { GamePlug } from './GamePlug/GamePlug';
 import { selectIsRefresh } from 'redux/auth/selectors';
+import { ClimbingBoxLoader } from 'react-spinners';
+import styled from 'styled-components';
+import Loader from './Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -20,7 +23,9 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefresh ? (
-    <h2>Loading</h2>
+    <LoaderWrapper>
+      <Loader />
+    </LoaderWrapper>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -40,3 +45,9 @@ export const App = () => {
     </Routes>
   );
 };
+
+const LoaderWrapper = styled.div`
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+`;

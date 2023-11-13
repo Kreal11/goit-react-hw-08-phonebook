@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import {
   CancelButton,
+  HeaderModalWrapper,
   SaveButton,
   StyledModalForm,
   StyledWrapperModal,
@@ -80,16 +81,5 @@ const Modal = ({ close, name, number, id }) => {
     rootModal
   );
 };
-
-const HeaderModalWrapper = styled.div`
-  text-align: center;
-
-  h2 {
-    font-size: 16px;
-  }
-  p {
-    font-size: 16px;
-  }
-`;
 
 export default Modal;

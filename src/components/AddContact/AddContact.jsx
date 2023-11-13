@@ -8,7 +8,6 @@ import {
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-// import { addContact } from 'redux/contactsSlice';
 import { addContactThunk } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
 

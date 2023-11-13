@@ -22,7 +22,6 @@ export const deleteContactThunk = createAsyncThunk(
     try {
       thunkApi.dispatch(setCurrentId(id));
       const { data } = await userAuthApi.delete(`contacts/${id}`);
-
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -35,7 +34,6 @@ export const addContactThunk = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const { data } = await userAuthApi.post('contacts', body);
-
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -48,7 +46,6 @@ export const editContactThunk = createAsyncThunk(
   async ({ id, ...body }, thunkApi) => {
     try {
       const { data } = await userAuthApi.patch(`contacts/${id}`, body);
-
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
