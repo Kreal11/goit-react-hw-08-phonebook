@@ -13,7 +13,8 @@ const initialState = {
   },
   token: '',
   isLoggedIn: false,
-  isRefresh: true,
+  isRefresh: false,
+  error: false,
 };
 
 const authSlice = createSlice({
@@ -43,6 +44,13 @@ const authSlice = createSlice({
           state.user.email = payload.user.email;
           state.token = payload.token;
           state.isLoggedIn = true;
+          state.error = false;
+        }
+      )
+      .addMatcher(
+        isAnyOf(registerThunk.rejected, loginThunk.rejected),
+        (state, { payload }) => {
+          state.error = true;
         }
       );
   },

@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { loginThunk } from 'redux/auth/operations';
 import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
-import { schemaRegister } from 'helpers/schemas';
+import { schemaLogin } from 'helpers/schemas';
 
 import {
   EmailPasswordInput,
@@ -27,7 +27,7 @@ export const Login = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schemaRegister),
+    resolver: yupResolver(schemaLogin),
   });
 
   const submit = ({ confirmPassword, ...data }) => {

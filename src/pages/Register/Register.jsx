@@ -31,7 +31,11 @@ export const Register = () => {
   });
 
   const submit = ({ confirmPassword, ...data }) => {
-    dispatch(registerThunk(data));
+    dispatch(registerThunk(data))
+      .unwrap()
+      .catch(e => {
+        toast.error('This email is invalid or already in the database');
+      });
     reset();
   };
 

@@ -22,9 +22,6 @@ export const registerThunk = createAsyncThunk(
       addToken(data.token);
       return data;
     } catch (error) {
-      if (error.response.data.code === 11000) {
-        toast.error('Sorry, this email already exists');
-      }
       thunkApi.rejectWithValue(error.message);
     }
   }
@@ -38,6 +35,7 @@ export const loginThunk = createAsyncThunk(
       addToken(data.token);
       return data;
     } catch (error) {
+      toast.error('Email or password is incorrect');
       thunkApi.rejectWithValue(error.message);
     }
   }
@@ -65,3 +63,7 @@ export const refreshThunk = createAsyncThunk('refresh', async (_, thunkApi) => {
     return thunkApi.rejectWithValue(error.message);
   }
 });
+
+// if (error.response.data.code === 11000) {
+//   toast.error('Sorry, this account already exists');
+// }
