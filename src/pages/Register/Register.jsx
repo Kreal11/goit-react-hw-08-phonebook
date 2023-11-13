@@ -34,7 +34,7 @@ export const Register = () => {
       .min(6, 'Min length must be at least 6 symbols')
       .max(18, 'Max length must be 18 symbols')
       .required(),
-    confirmPassword: yup.string().oneOf([]),
+    confirmPassword: yup.string().oneOf([yup.ref('password')]),
   });
 
   const {
