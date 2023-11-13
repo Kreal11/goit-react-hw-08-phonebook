@@ -73,6 +73,7 @@ export const Register = () => {
           placeholder="Enter email"
         />
       </InputWrapper>
+      {errors?.email && <div>{errors.email.message}</div>}
       <InputWrapper>
         <RegisterInput
           type="password"
@@ -80,6 +81,7 @@ export const Register = () => {
           placeholder="Enter password"
         />
       </InputWrapper>
+      {errors?.password && <div>{errors.password.message}</div>}
       <InputWrapper>
         <RegisterInput
           type="password"
@@ -87,6 +89,7 @@ export const Register = () => {
           placeholder="Confirm password"
         />
       </InputWrapper>
+      {errors?.confirmPassword && <div>{errors.confirmPassword.message}</div>}
       <RegisterButton>Register</RegisterButton>
       <span>
         Already have an account? <NavLink to="/login">Let's log in!</NavLink>

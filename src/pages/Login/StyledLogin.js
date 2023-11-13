@@ -5,7 +5,7 @@ export const LoginForm = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  margin-top: 50px;
+  margin: 50px 0;
 
   span {
     font-size: 14px;

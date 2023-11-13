@@ -32,11 +32,11 @@ export const NavBar = () => {
         ) : (
           <LoggedLinksWrapper>
             <div>
-              <span>Hi, {name}!</span>
               <NavLink to="/home">Home</NavLink>
               <NavLink to="/">Game</NavLink>
             </div>
             <div>
+              <span>{name}</span>
               <button onClick={() => dispatch(logoutThunk())}>Log out</button>
             </div>
           </LoggedLinksWrapper>
