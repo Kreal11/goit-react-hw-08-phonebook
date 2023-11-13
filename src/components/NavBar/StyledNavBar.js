@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NavWrapper = styled.nav`
+export const StyledNav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,12 +48,15 @@ export const LoggedLinksWrapper = styled.div`
   align-items: center;
   gap: 20px;
   margin-bottom: 20px;
-  min-width: 780px;
 
   div {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
+
+    @media (min-width: 768px) {
+      gap: 20px;
+    }
   }
 
   a {
@@ -125,5 +128,13 @@ export const LoggedLinksWrapper = styled.div`
         box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
       }
     }
+  }
+
+  @media (min-width: 768px) {
+    min-width: 620px;
+  }
+
+  @media (min-width: 1440px) {
+    min-width: 780px;
   }
 `;

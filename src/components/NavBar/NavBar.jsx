@@ -6,11 +6,7 @@ import { logoutThunk } from 'redux/auth/operations';
 import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
 
 import { StyledHeaderH1 } from 'components/StyledApp';
-import {
-  LoggedLinksWrapper,
-  NavLinksWrapper,
-  NavWrapper,
-} from './StyledNavBar';
+import { LoggedLinksWrapper, NavLinksWrapper, StyledNav } from './StyledNavBar';
 
 export const NavBar = () => {
   const { name } = useSelector(selectUser);
@@ -19,7 +15,7 @@ export const NavBar = () => {
 
   return (
     <div>
-      <NavWrapper>
+      <StyledNav>
         <div>
           <StyledHeaderH1>PHONEBOOK</StyledHeaderH1>
         </div>
@@ -41,7 +37,7 @@ export const NavBar = () => {
             </div>
           </LoggedLinksWrapper>
         )}
-      </NavWrapper>
+      </StyledNav>
     </div>
   );
 };
