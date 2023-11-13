@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const userAuthApi = axios.create({
   baseURL: 'https://connections-api.herokuapp.com/',
@@ -21,6 +22,10 @@ export const registerThunk = createAsyncThunk(
       addToken(data.token);
       return data;
     } catch (error) {
+      console.log(error);
+      if (error.response.data.code === 11000) {
+        toast.error('Sorry, this email already exists');
+      }
       thunkApi.rejectWithValue(error.message);
     }
   }
