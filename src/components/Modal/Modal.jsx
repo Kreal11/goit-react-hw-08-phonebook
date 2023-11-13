@@ -12,6 +12,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { editContactThunk } from 'redux/operations';
+import PropTypes from 'prop-types';
 
 const rootModal = document.querySelector('#modal');
 
@@ -82,3 +83,10 @@ const Modal = ({ close, name, number, id }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  close: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};

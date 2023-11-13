@@ -19,9 +19,7 @@ export const NavBar = () => {
     <div>
       <NavWrapper>
         <div>
-          {/* {!isLoggedIn && <NavLink to="/">Start page</NavLink>} */}
           <StyledHeaderH1>PHONEBOOK</StyledHeaderH1>
-          {/* {isLoggedIn && <NavLink to="/allContacts">My profile</NavLink>} */}
         </div>
         {!isLoggedIn ? (
           <NavLinksWrapper>
