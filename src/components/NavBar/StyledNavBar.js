@@ -18,12 +18,25 @@ export const NavLinksWrapper = styled.div`
     color: #8b5a8b;
     transition: color 0.5s, background-color 0.5s;
     border-radius: 3px;
+    position: relative;
+
     &:hover {
       background-color: #8b5a8b;
       color: white;
     }
+
     &.active {
-      border-bottom: #8b5a8b 3px solid;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 3px;
+        background-color: #8b5a8b;
+      }
     }
   }
 `;
@@ -37,18 +50,37 @@ export const LoggedLinksWrapper = styled.div`
   margin-bottom: 20px;
   min-width: 780px;
 
+  div {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
   a {
     padding: 5px;
     text-decoration: none;
     color: #8b5a8b;
     transition: color 0.5s, background-color 0.5s;
     border-radius: 3px;
+    position: relative;
+
     &:hover {
       background-color: #8b5a8b;
       color: white;
     }
+
     &.active {
-      border-bottom: #8b5a8b 3px solid;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 3px;
+        background-color: #8b5a8b;
+      }
     }
   }
 
